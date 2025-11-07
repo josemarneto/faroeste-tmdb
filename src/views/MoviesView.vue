@@ -4,6 +4,7 @@
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
   import { useRouter } from 'vue-router'
+  import MovieDetailsView from './MovieDetailsView.vue';
 
   const router = useRouter();
   const genreStore = useGenreStore();
@@ -18,7 +19,7 @@
   }
   
   function openMovie(movieId) {
-    router.push({ name: 'MovieDetails', params: { movieId } });
+    router.push({ name: 'MovieDetails', params: { filmeId: movieId } });
   }
 
   const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR');
@@ -65,7 +66,8 @@
     <img
   :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
   :alt="movie.title"
-  @click="openMovie(movieId)"
+  @click="openMovie(movie.id)"
+  style="cursor: pointer"
 />
     <div class="movie-details">
       <p class="movie-title">{{ movie.title }}</p>

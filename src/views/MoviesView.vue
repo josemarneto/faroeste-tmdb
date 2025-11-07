@@ -16,7 +16,7 @@
     const genero = genres.value.find((genre) => genre.id === id);
     return genero.name;
   }
-  
+
   function openMovie(movieId) {
     router.push({ name: 'MovieDetails', params: { movieId } });
   }
@@ -47,7 +47,7 @@
 </script>
 <template>
     <body background="/public/img/img-faroeste.jpg">
-  <h1>Filmes</h1>
+
   <ul class="genre-list">
       <li
     v-for="genre in genreStore.genres"
@@ -87,33 +87,36 @@
 </template>
 <style scoped>
 .genre-list {
+
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
   margin-bottom: 2rem;
-  
+
 }
 
 .genre-item {
-  background-color: #387250;
+  margin: 1.5vw 0 0 0;
+  background-color:#000;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
-  color: #fff;
+  color: #e2620c;
+
 }
 
 .genre-item:hover {
   cursor: pointer;
-  background-color: #4e9e5f;
-  box-shadow: 0 0 0.5rem #387250;
+  background-color: #e2620c;
+  box-shadow: 0 0 0.5rem #d86100;
 }
 .movie-list {
 
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 1vw 0 1vw 2vw;
+  justify-content: center;
 }
 
 .movie-card {
@@ -135,6 +138,8 @@
 .movie-details {
   padding: 0 0.5rem;
   color: #fff;
+  font-size:15px;
+
 }
 
 .movie-title {
@@ -145,7 +150,7 @@
   height: 3.2rem;
 }
 .movie-genres {
-  
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -156,6 +161,9 @@
 }
 
 .movie-genres span {
+  border-style: groove;
+  border-width: 1px;
+  border-color: #e2620c;
   background-color: #e2620c;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
@@ -166,6 +174,7 @@
     100% / 200% var(--p, 0.2em);
   transition: 0.3s var(--t, 0s),
     background-position 0.3s calc(0.3s - var(--t, 0s));
+
 }
 
 
@@ -178,7 +187,7 @@
   color: #fff;
 }
 .active {
-  background-color: #67b086;
+  background-color: #682100;
   font-weight: bolder;
 }
 body{

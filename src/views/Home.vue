@@ -3,8 +3,7 @@
 <template>
   <body background="/public/img/img-faroeste.jpg">
     <h1>Home</h1>
-    <p>Welcome to the Faroeste TMDB application!</p>
-    <router-link to="/filmes">Go to Movies</router-link>
+    <p>Bem-Vindo ao Absolute cowboys</p>
   </body>
 </template>
 <style>

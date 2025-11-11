@@ -76,7 +76,7 @@
       <p class="movie-release-date">{{ formatDate(movie.release_date) }}</p>
       <p class="movie-genres">
   <span
-  v-for="genre_id in movie.genre_ids.filter(id => id !== 37)"
+  v-for="genre_id in movie.genre_ids.filter(id => id !== 37 && id !== 10752)"
   :key="genre_id"
   @click="listMovies(genre_id)"
   :class="{ active: genre_id === genreStore.currentGenreId }"

@@ -11,7 +11,7 @@ export const useGenreStore = defineStore('genre', () => {
   const genres = computed(() => state.genres);
 
   const filteredGenres = computed(() =>
-    state.genres.filter(genre => genre.id !== 37)
+    state.genres.filter(genre => genre.id !== 37 && genre.id !== 10752 && genre.id !== 10763 && genre.id !== 9648 && genre.id !== 10764 && genre.id !== 10766 && genre.id !== 10767 && genre.id !== 10768)
   );
 
  

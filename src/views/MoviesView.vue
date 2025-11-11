@@ -51,14 +51,16 @@
   <h1>Filmes</h1>
   <ul class="genre-list">
       <li
-    v-for="genre in genreStore.genres"
-    :key="genre.id"
-    @click="listMovies(genre.id)"
-    class="genre-item"
-    :class="{ active: genre.id === genreStore.currentGenreId }"
-  >
-    {{ genre.name }}
-  </li>
+  v-for="genre in genreStore.filteredGenres"
+  :key="genre.id"
+  @click="listMovies(genre.id)"
+  class="genre-item"
+  :class="{ active: genre.id === genreStore.currentGenreId }"
+>
+  {{ genre.name }}
+</li>
+
+
   </ul>
   <loading v-model:active="isLoading" is-full-page />
   <div class="movie-list">
@@ -74,7 +76,7 @@
       <p class="movie-release-date">{{ formatDate(movie.release_date) }}</p>
       <p class="movie-genres">
   <span
-  v-for="genre_id in movie.genre_ids"
+  v-for="genre_id in movie.genre_ids.filter(id => id !== 37)"
   :key="genre_id"
   @click="listMovies(genre_id)"
   :class="{ active: genre_id === genreStore.currentGenreId }"

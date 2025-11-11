@@ -4,6 +4,7 @@
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
   import { useRouter } from 'vue-router'
+  import MovieDetailsView from './MovieDetailsView.vue';
 
   const router = useRouter();
   const genreStore = useGenreStore();
@@ -18,7 +19,7 @@
   }
   
   function openMovie(movieId) {
-    router.push({ name: 'MovieDetails', params: { movieId } });
+    router.push({ name: 'MovieDetails', params: { filmeId: movieId } });
   }
 
   const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR');
@@ -50,14 +51,16 @@
   <h1>Filmes</h1>
   <ul class="genre-list">
       <li
-    v-for="genre in genreStore.genres"
-    :key="genre.id"
-    @click="listMovies(genre.id)"
-    class="genre-item"
-    :class="{ active: genre.id === genreStore.currentGenreId }"
-  >
-    {{ genre.name }}
-  </li>
+  v-for="genre in genreStore.filteredGenres"
+  :key="genre.id"
+  @click="listMovies(genre.id)"
+  class="genre-item"
+  :class="{ active: genre.id === genreStore.currentGenreId }"
+>
+  {{ genre.name }}
+</li>
+
+
   </ul>
   <loading v-model:active="isLoading" is-full-page />
   <div class="movie-list">
@@ -65,14 +68,15 @@
     <img
   :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
   :alt="movie.title"
-  @click="openMovie(movieId)"
+  @click="openMovie(movie.id)"
+  style="cursor: pointer"
 />
     <div class="movie-details">
       <p class="movie-title">{{ movie.title }}</p>
       <p class="movie-release-date">{{ formatDate(movie.release_date) }}</p>
       <p class="movie-genres">
   <span
-  v-for="genre_id in movie.genre_ids"
+  v-for="genre_id in movie.genre_ids.filter(id => id !== 37)"
   :key="genre_id"
   @click="listMovies(genre_id)"
   :class="{ active: genre_id === genreStore.currentGenreId }"

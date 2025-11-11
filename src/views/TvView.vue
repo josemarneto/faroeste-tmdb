@@ -38,7 +38,7 @@
 
 <template>
     <body background="/public/img/img-faroeste.jpg">
-  <h1>Programas de TV</h1>
+
   <ul class="genre-list">
     <li
   v-for="genre in genreStore.genres"
@@ -85,32 +85,35 @@
 }
 
   .genre-item {
-    background-color: #5d6424;
-    border-radius: 1rem;
-    padding: 0.5rem 1rem;
-    align-self: center;
-    color: #fff;
-    display: flex;
-    justify-content: center;
+  margin: 1.5vw 0 0 0;
+  background-color:#000;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #e2620c;
+  font-weight: bold;
   }
 
   .genre-item:hover {
     cursor: pointer;
-    background-color: #7d8a2e;
-    box-shadow: 0 0 0.5rem #5d6424;
+  background-color: #e2620c;
+  box-shadow: 0 0 0.5rem #d86100;
+  color: #000;
+  font-weight: bold;
   }
   .tv-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .tv-card {
-  width: 15rem;
+width: 15rem;
   height: 30rem;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
+  background-color : #000;
 }
 
 .tv-card img {
@@ -122,13 +125,17 @@
 
 .tv-details {
   padding: 0 0.5rem;
+  color: #fff;
+  font-size: 15px;
 }
 
 .tv-name {
+ color: #e2620c;
   font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.3rem;
   height: 3.2rem;
+  margin: 0 0 0 20px;
 }
 .tv-genres {
   display: flex;
@@ -140,17 +147,27 @@
 }
 
 .tv-genres span {
-  background-color: #748708;
+ border-style: groove;
+  border-width: 1px;
+  border-color: #e2620c;
+  background-color: #e2620c;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
+   background: linear-gradient(#e2620c 0 0) no-repeat calc(200% - var(--p, 0%))
+    100% / 200% var(--p, 0.2em);
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s));
 }
 
 .tv-genres span:hover {
   cursor: pointer;
-  background-color: #455a08;
-  box-shadow: 0 0 0.5rem #748708;
+  background-color: #d86100;
+  box-shadow: 0 0 0.5rem #ffae00;
+  --p: 100%;
+  --t: 0.3s;
+  color: #fff;
 }
 </style>

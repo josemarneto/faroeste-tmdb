@@ -100,7 +100,7 @@
 .genre-item {
   margin: 1.5vw 0 0 0;
   background-color:#000;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   color: #e2620c;
   font-weight: bold;
@@ -115,7 +115,6 @@
   font-weight: bold;
 }
 .movie-list {
-
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

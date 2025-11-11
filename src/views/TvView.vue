@@ -61,7 +61,7 @@
       <p class="tv-release-date">{{ formatDate(tv.first_air_date) }}</p>
       <p class="tv-genres">
   <span
-  v-for="genre_id in tv.genre_ids.filter(id => id !== 37)"
+  v-for="genre_id in tv.genre_ids.filter(id => id !== 37 && id !== 10752 && id !== 10763 && id !== 9648 && id !== 10764 && id !== 10766 && id !== 10767 && id !== 10768)"
   :key="genre_id"
   @click="listTv(genre_id)"
 >

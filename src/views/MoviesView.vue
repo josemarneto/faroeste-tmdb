@@ -103,6 +103,7 @@
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   color: #e2620c;
+  font-weight: bold;
 
 }
 
@@ -110,6 +111,8 @@
   cursor: pointer;
   background-color: #e2620c;
   box-shadow: 0 0 0.5rem #d86100;
+  color: #000;
+  font-weight: bold;
 }
 .movie-list {
 
@@ -148,6 +151,7 @@
   font-weight: bold;
   line-height: 1.3rem;
   height: 3.2rem;
+  margin: 0 0 0 35px;
 }
 .movie-genres {
 

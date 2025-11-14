@@ -117,20 +117,20 @@ onMounted(async () => {
 
   .card {
     width: 150px;
-  height: 25rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
-  background-color : #000;
+    height: 25rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem #000;
+    background-color : #000;
   }
 
   .card img {
     width: 150px;
-  height: 225px;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
-  background-color : #000;
+    height: 225px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem #000;
+    background-color : #000;
   }
 
   .title {

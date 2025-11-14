@@ -21,12 +21,11 @@ function openSeries(tvId) {
 const formatDate = (date) =>
   new Date(date).toLocaleDateString('pt-BR')
 
-// SUAS KEYWORDS – em string (correto)
 const KEYWORDS = [
   155573, 15662, 340029, 305941, 197125, 215686, 254500, 222835, 222934,
   168422, 168713, 256930, 227264, 177703, 178402, 271626, 237964,
   155291, 287407, 168418, 238520, 309147
-].join(",")
+]
 
 // Filmes de Faroeste
 const loadTopMovies = async () => {
@@ -36,7 +35,6 @@ const loadTopMovies = async () => {
         language: 'pt-BR',
         sort_by: 'popularity.desc',
         with_genres: 37,
-        with_keywords: KEYWORDS
       }
     })
     topMovies.value = response.data.results.slice(0, 10)
@@ -47,16 +45,16 @@ const loadTopMovies = async () => {
 }
 
 // Séries de Faroeste
-// TV NÃO POSSUI O GÊNERO 37 → usa só keywords
 const loadTopSeries = async () => {
   try {
     const response = await api.get('discover/tv', {
       params: {
+        with_genres: 37,
         language: 'pt-BR',
         sort_by: 'popularity.desc',
-        with_keywords: KEYWORDS
       }
     })
+    console.log(response.data.results)
     topSeries.value = response.data.results.slice(0, 10)
   } catch (err) {
     console.error("Erro ao carregar séries:", err)
@@ -67,7 +65,6 @@ const loadTopSeries = async () => {
 onMounted(async () => {
   isLoading.value = true
 
-  // Mesmo se uma der erro, a outra resolve
   await Promise.allSettled([loadTopMovies(), loadTopSeries()])
 
   isLoading.value = false
@@ -91,7 +88,6 @@ onMounted(async () => {
             @click="openMovie(movie.id)"
           />
           <p class="title">{{ movie.title }}</p>
-          <p class="date">{{ formatDate(movie.release_date) }}</p>
         </div>
       </div>
     </section>
@@ -106,9 +102,50 @@ onMounted(async () => {
             @click="openSeries(tv.id)"
           />
           <p class="title">{{ tv.name }}</p>
-          <p class="date">{{ formatDate(tv.first_air_date) }}</p>
         </div>
       </div>
     </section>
   </body>
 </template>
+<style>
+ .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 4vw;
+  }
+
+  .card {
+    width: 150px;
+  height: 25rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.5rem #000;
+  background-color : #000;
+  }
+
+  .card img {
+    width: 150px;
+  height: 225px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.5rem #000;
+  background-color : #000;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

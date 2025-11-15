@@ -37,7 +37,7 @@
 </script>
 
 <template>
-    <body background="/public/img/img-faroeste.jpg">
+    <body>
 
   <ul class="genre-list">
     <li

@@ -7,36 +7,39 @@ import { RouterView } from 'vue-router'
     <nav>
       <div class="one">
 
-      <div>
-      <h1>!!ABSOLUTE-COWBOYS!!</h1>
-      </div>
+        <div>
+          <a class="logo">Absolute-Cowboys</a>
+        </div>
 
-      <div>
-      <router-link to="/">Home</router-link>
-      <router-link to="/filmes">Filmes</router-link>
-      <router-link to="/tv">Programas de TV</router-link>
-      </div>
+        <div class="navegacao">
+          <router-link to="/">Home</router-link>
+          <router-link to="/filmes"><span class="mdi mdi-movie"></span></router-link>
+          <router-link to="/tv"><span class="mdi mdi-television-classic"></span></router-link>
+        </div>
 
       </div>
     </nav>
   </header>
+
   <main>
     <RouterView />
   </main>
+
+  <footer>
+
+  </footer>
 </template>
 
 <style scoped>
 header {
-  height: 10rem;
+  height: 6rem;
   display: flex;
-  background-color: #000;
+  background-color: #442701;
   color: #fff;
   font-size: 1.2rem;
   padding-left: 2rem;
 
 }
-
-
 
 nav {
   column-gap: 0.5rem;
@@ -46,16 +49,26 @@ nav {
 }
 
 nav a {
-  margin: 1vw 0 2vw 19vw;
+  margin: 2vw 0 2vw 5vw;
   text-decoration: none;
-  color: #e2620c;
+  color: #f0a70a;
   font-family: serif;
   font-weight: bold;
   font-size: 1.3rem;
-   text-shadow: 2px 2px #303030;
+  text-shadow: 2px 2px #303030;
 }
-h1{
+
+.one {
+  display: flex;
+}
+
+.logo {
   font-family: 'Times New Roman', Times, serif;
-  margin: 1vw 0 1vw 30vw;
+  margin: 2vw 0 0 3vw;
+  font-size: 1.8vw;
+}
+
+.navegacao {
+  margin: 0 0 0 50vw;
 }
 </style>

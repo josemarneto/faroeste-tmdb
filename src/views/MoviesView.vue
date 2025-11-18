@@ -105,6 +105,7 @@ body{
   font-size: 4rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #442701;
+  text-shadow: 3px 3px #000000;
 }
 .genre-list {
 
@@ -146,17 +147,18 @@ body{
   margin: 1.5vw;
   width: 15rem;
   height: 30rem;
-  border-radius: 0.5rem;
+  border-radius: 4rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
-  background-color : #000;
+  background-color : #000000b7;
 }
 
 .movie-card img {
-  width: 100%;
+  width: 85%;
   height: 20rem;
-  border-radius: 0.5rem;
+  border-radius: 3rem;
   box-shadow: 0 0 0.5rem #000;
+  margin: 0.5vw 0 0 1vw;
 }
 
 .movie-details {

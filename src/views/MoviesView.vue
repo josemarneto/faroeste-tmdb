@@ -90,7 +90,7 @@
 <style scoped>
 body{
   background-color: #442701;
-  height: 110%;
+  height: 100%;
   margin: 0;
 }
 .conteudo{
@@ -147,7 +147,7 @@ body{
   margin: 1.5vw;
   width: 15rem;
   height: 30rem;
-  border-radius: 4rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
   background-color : #000000b7;
@@ -158,7 +158,7 @@ body{
   height: 20rem;
   border-radius: 3rem;
   box-shadow: 0 0 0.5rem #000;
-  margin: 0.5vw 0 0 1vw;
+  margin: 0.5vw 0 0 1.4vw;
 }
 
 .movie-details {

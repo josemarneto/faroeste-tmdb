@@ -37,9 +37,9 @@ import { RouterView } from 'vue-router'
         <li>
         <a href="#"><span class="mdi mdi-whatsapp"></span></a>
         </li>
-
         </ul>
       </div>
+      <p class="text">Só aqui<br> você encontra <br>o melhor do faroeste</p>
     <div class="borda">
     <p>Copyright &copy;2025 Todos os direitos reservados</p>
     </div>
@@ -69,8 +69,7 @@ nav {
   border-radius: 20px;
    width: 94%;
    justify-content: center;
-   margin: 2vw 0 2vw 2vw;
-   padding: 0 0 0 0;
+   margin: 3vw 0 4vw 2vw;
 }
 nav a {
   margin: 2vw 0 2vw 5vw;
@@ -79,7 +78,7 @@ nav a {
   font-family: serif;
   font-weight: bold;
   font-size: 1.3rem;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 1.5px 1.5px #000000;
 }
 
 .one {
@@ -106,7 +105,7 @@ footer{
   justify-content: end;
   align-items: center;
   background-color: #fab54e;
-  height: 10rem;
+  height: 15rem;
   width: 94%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -114,8 +113,9 @@ footer{
 
 }
 footer p{
-  color: #fff;
+  color: #000;
   margin: 1vw 0 0 0;
+  font-weight: bold;
 }
 .borda{
   display: flex;
@@ -128,9 +128,27 @@ footer p{
    width: 70%;
 }
 
-.icons ul li{
+.icons ul {
   font-size: 30px;
   text-decoration: none;
+  list-style-type: none;
+  color: #000000;
+  display: flex;
+  margin: 0 52vw 1vw 0;
 
+}
+.icons ul li{
+  margin: 0 1vw 0 0;
+}
+a{
+  color: #000;
+}
+.text{
+  color: #000000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  margin: 0 35vw 0 0;
 }
 </style>

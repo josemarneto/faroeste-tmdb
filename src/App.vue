@@ -113,7 +113,7 @@ footer{
 
 }
 footer p{
-  color: #000;
+  color: #fab54e;
   margin: 1vw 0 0 0;
   font-weight: bold;
 }

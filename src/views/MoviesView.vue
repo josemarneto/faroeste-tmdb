@@ -47,7 +47,7 @@
 </script>
 <template>
 
-    <body>
+    <div class="tudo">
 <div class="conteudo">
   <h1>Western Movies</h1>
   <ul class="genre-list">
@@ -67,7 +67,7 @@
     <img
   :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
   :alt="movie.title"
-  @click="openMovie(movieId)"
+  @click="openMovie(movie.id)"
 />
     <div class="movie-details">
       <p class="movie-title">{{ movie.title }}</p>
@@ -85,10 +85,10 @@
   </div>
 </div>
 </div>
-</body>
+</div>
 </template>
 <style scoped>
-body{
+.tudo{
   background-color: #442701;
   height: 100%;
   margin: 0;
@@ -157,7 +157,7 @@ body{
   width: 85%;
   height: 20rem;
   border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #000;
+  box-shadow: 0 0 0.5rem #f0a70a;
   margin: 0.5vw 0 0 1.4vw;
 }
 

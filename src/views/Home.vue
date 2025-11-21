@@ -1,10 +1,10 @@
 <template>
-<body background="/public/img/img-faroeste.jpg">
-  
-</body>
+<div class="tudo" background="/public/img/img-faroeste.jpg">
+
+</div>
 </template>
 <style>
-body{
+.tido{
   background-repeat: no-repeat;
   background-size: cover;
 }

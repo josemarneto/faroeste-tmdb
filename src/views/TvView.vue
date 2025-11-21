@@ -3,7 +3,10 @@
   import api from '@/plugins/axios';
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
+  import { useRouter } from 'vue-router'
 
+  
+  const router = useRouter()
   const genreStore = useGenreStore();
 
   const isLoading = ref(false);
@@ -34,10 +37,13 @@
   await genreStore.getAllGenres('tv');
   isLoading.value = false;
 });
+ function openTv(tvId) {
+    router.push({ name: 'TvDetails', params: { tvId } });
+  }
 </script>
 
 <template>
-    <body>
+    <div class="tudo">
   <div class="conteudo">
     <h1>Western TV</h1>
   <ul class="genre-list">
@@ -56,6 +62,7 @@
     <img
       :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`"
       :alt="tv.name"
+       @click="openTv(tv.id)"
     />
     <div class="tv-details">
       <p class="tv-name">{{ tv.name }}</p>
@@ -72,11 +79,11 @@
   </div>
 </div>
 </div>
-    </body>
+</div>
 </template>
 
 <style scoped>
-body{
+.tudo{
 
   background-color: #442701;
   height: 100%;
@@ -144,7 +151,7 @@ width: 15rem;
     width: 85%;
   height: 20rem;
   border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #000;
+  box-shadow: 0 0 0.5rem #f0a70a;
   margin: 0.5vw 0 0 1.4vw;
 }
 

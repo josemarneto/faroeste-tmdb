@@ -4,8 +4,9 @@
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
   import { useRouter } from 'vue-router'
+  import FooterComponents from '@/components/FooterComponents.vue';
 
-  
+
   const router = useRouter()
   const genreStore = useGenreStore();
 
@@ -80,6 +81,7 @@
 </div>
 </div>
 </div>
+<FooterComponents />
 </template>
 
 <style scoped>

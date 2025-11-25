@@ -49,7 +49,7 @@
     <h1>Western TV</h1>
   <ul class="genre-list">
     <li
-  v-for="genre in genreStore.genres"
+  v-for="genre in genreStore.filteredGenres"
   :key="genre.id"
   @click="listTv(genre.id)"
   class="genre-item"
@@ -69,7 +69,7 @@
       <p class="tv-name">{{ tv.name }}</p>
       <p class="tv-genres">
   <span
-  v-for="genre_id in tv.genre_ids"
+  v-for="genre_id in tv.genre_ids.filter(id => id !== 37 && id !== 10752 && id !== 10763 && id !== 9648 && id !== 10764 && id !== 10766 && id !== 10767 && id !== 10768)"
   :key="genre_id"
   @click="listTv(genre_id)"
 >

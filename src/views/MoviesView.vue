@@ -4,6 +4,7 @@
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
   import { useRouter } from 'vue-router'
+  import FooterComponents from '@/components/FooterComponents.vue';
 
   const router = useRouter();
   const genreStore = useGenreStore();
@@ -16,7 +17,7 @@
     const genero = genres.value.find((genre) => genre.id === id);
     return genero.name;
   }
-  
+
   function openMovie(movieId) {
     router.push({ name: 'MovieDetails', params: { movieId } });
   }
@@ -46,8 +47,10 @@
 });
 </script>
 <template>
-    <body background="/public/img/img-faroeste.jpg">
-  <h1>Filmes</h1>
+
+    <div class="tudo">
+<div class="conteudo">
+  <h1>Western Movies</h1>
   <ul class="genre-list">
       <li
     v-for="genre in genreStore.genres"
@@ -65,11 +68,10 @@
     <img
   :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
   :alt="movie.title"
-  @click="openMovie(movieId)"
+  @click="openMovie(movie.id)"
 />
     <div class="movie-details">
       <p class="movie-title">{{ movie.title }}</p>
-      <p class="movie-release-date">{{ formatDate(movie.release_date) }}</p>
       <p class="movie-genres">
   <span
   v-for="genre_id in movie.genre_ids"
@@ -83,69 +85,101 @@
     </div>
   </div>
 </div>
-    </body>
+</div>
+</div>
+<FooterComponents />
 </template>
 <style scoped>
+.tudo{
+  background-color: #442701;
+  height: 100%;
+  margin: 0;
+}
+.conteudo{
+  background-color: #fab54e;
+  border-radius: 20px;
+   width: 94%;
+   justify-content: center;
+   margin: 0 0 0 3vw;
+}
+.conteudo h1{
+  text-align: center;
+  font-size: 4rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #442701;
+  text-shadow: 3px 3px #000000;
+}
 .genre-list {
+
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
   margin-bottom: 2rem;
-  
+
 }
 
 .genre-item {
-  background-color: #387250;
-  border-radius: 1rem;
+  margin: 1.5vw 0 0 0;
+  background-color:#442701;
+  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  color: #fff;
+  color: #f0a70a;
+  font-weight: bold;
+  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 .genre-item:hover {
   cursor: pointer;
-  background-color: #4e9e5f;
-  box-shadow: 0 0 0.5rem #387250;
+  background-color: #f0a70a;
+  box-shadow: 0 0 0.5rem #f0a70a;
+  color: #000;
+  font-weight: bold;
 }
 .movie-list {
-
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 1vw 0 1vw 2vw;
+  justify-content: center;
 }
 
 .movie-card {
+  margin: 1.5vw;
   width: 15rem;
   height: 30rem;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
-  background-color : #000;
+  background-color : #000000b7;
 }
 
 .movie-card img {
-  width: 100%;
+  width: 85%;
   height: 20rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #000;
+  border-radius: 3rem;
+  box-shadow: 0 0 0.5rem #f0a70a;
+  margin: 0.5vw 0 0 1.4vw;
 }
 
 .movie-details {
   padding: 0 0.5rem;
   color: #fff;
+  font-size:15px;
+
 }
 
 .movie-title {
-  color: #e2620c;
+  color: #f0a70a;
   font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.3rem;
   height: 3.2rem;
+  margin: 0 0 0 10px;
 }
 .movie-genres {
-  
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -156,16 +190,20 @@
 }
 
 .movie-genres span {
-  background-color: #e2620c;
+  border-style: groove;
+  border-width: 1px;
+  border-color: #f0a70a;
+  background-color: #f0a70a;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
-   background: linear-gradient(#e2620c 0 0) no-repeat calc(200% - var(--p, 0%))
+   background: linear-gradient(#f0a70a 0 0) no-repeat calc(200% - var(--p, 0%))
     100% / 200% var(--p, 0.2em);
   transition: 0.3s var(--t, 0s),
     background-position 0.3s calc(0.3s - var(--t, 0s));
+
 }
 
 
@@ -178,11 +216,8 @@
   color: #fff;
 }
 .active {
-  background-color: #67b086;
+  background-color: #682100;
   font-weight: bolder;
 }
-body{
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 </style>

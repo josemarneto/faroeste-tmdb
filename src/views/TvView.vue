@@ -3,7 +3,11 @@
   import api from '@/plugins/axios';
   import Loading from 'vue-loading-overlay';
   import { useGenreStore } from '@/stores/genre';
+  import { useRouter } from 'vue-router'
+  import FooterComponents from '@/components/FooterComponents.vue';
 
+
+  const router = useRouter()
   const genreStore = useGenreStore();
 
   const isLoading = ref(false);
@@ -34,11 +38,15 @@
   await genreStore.getAllGenres('tv');
   isLoading.value = false;
 });
+ function openTv(tvId) {
+    router.push({ name: 'TvDetails', params: { tvId } });
+  }
 </script>
 
 <template>
-    <body background="/public/img/img-faroeste.jpg">
-
+    <div class="tudo">
+  <div class="conteudo">
+    <h1>Western TV</h1>
   <ul class="genre-list">
     <li
   v-for="genre in genreStore.filteredGenres"
@@ -55,10 +63,10 @@
     <img
       :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`"
       :alt="tv.name"
+       @click="openTv(tv.id)"
     />
     <div class="tv-details">
       <p class="tv-name">{{ tv.name }}</p>
-      <p class="tv-release-date">{{ formatDate(tv.first_air_date) }}</p>
       <p class="tv-genres">
   <span
   v-for="genre_id in tv.genre_ids.filter(id => id !== 37 && id !== 10752 && id !== 10763 && id !== 9648 && id !== 10764 && id !== 10766 && id !== 10767 && id !== 10768)"
@@ -71,10 +79,32 @@
     </div>
   </div>
 </div>
-    </body>
+</div>
+</div>
+<FooterComponents />
 </template>
 
 <style scoped>
+.tudo{
+
+  background-color: #442701;
+  height: 100%;
+  margin: 0;
+}
+.conteudo{
+  background-color: #fab54e;
+  border-radius: 20px;
+   width: 94%;
+   justify-content: center;
+   margin: 0 0 0 3vw;
+}
+.conteudo h1{
+  text-align: center;
+  font-size: 4rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #442701;
+  text-shadow: 3px 3px #000000;
+}
   .genre-list {
   display: flex;
   justify-content: center;
@@ -85,18 +115,20 @@
 }
 
   .genre-item {
-  margin: 1.5vw 0 0 0;
-  background-color:#000;
+  margin: 1.5vw 1vw 0 0;
+  background-color:#442701;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  color: #e2620c;
-  font-weight: bold;
+  color: #f0a70a;
+   font-weight: bold;
+  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
   }
 
   .genre-item:hover {
     cursor: pointer;
-  background-color: #e2620c;
-  box-shadow: 0 0 0.5rem #d86100;
+  background-color: #f0a70a;
+  box-shadow: 0 0 0.5rem #f0a70a;
   color: #000;
   font-weight: bold;
   }
@@ -113,29 +145,28 @@ width: 15rem;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
-  background-color : #000;
+  background-color : #000000b7;
+  margin: 1.5vw;
 }
 
 .tv-card img {
-  width: 100%;
+    width: 85%;
   height: 20rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #000;
+  border-radius: 3rem;
+  box-shadow: 0 0 0.5rem #f0a70a;
+  margin: 0.5vw 0 0 1.4vw;
 }
 
-.tv-details {
-  padding: 0 0.5rem;
-  color: #fff;
-  font-size: 15px;
-}
+
 
 .tv-name {
- color: #e2620c;
+ color: #f0a70a;
   font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.3rem;
   height: 3.2rem;
   margin: 0 0 0 20px;
+
 }
 .tv-genres {
   display: flex;
@@ -149,14 +180,14 @@ width: 15rem;
 .tv-genres span {
  border-style: groove;
   border-width: 1px;
-  border-color: #e2620c;
-  background-color: #e2620c;
+  border-color: #f0a70a;
+  background-color: #f0a70a;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
-   background: linear-gradient(#e2620c 0 0) no-repeat calc(200% - var(--p, 0%))
+   background: linear-gradient(#f0a70a 0 0) no-repeat calc(200% - var(--p, 0%))
     100% / 200% var(--p, 0.2em);
   transition: 0.3s var(--t, 0s),
     background-position 0.3s calc(0.3s - var(--t, 0s));

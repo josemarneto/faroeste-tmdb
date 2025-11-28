@@ -144,10 +144,11 @@ onMounted(async () => {
 }
 
 .movie-card {
-  background-color: #830000;
-  border-radius: 14px;
+  background-color: #000;
+  border-radius: 3rem;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: #830000 2px solid;
 }
 
 .movie-card:hover {
@@ -159,12 +160,11 @@ onMounted(async () => {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 3rem;
   margin: 0;
   box-shadow: none;
   display: block;
   cursor: pointer;
-  border: #830000 2px solid;
 }
 
 .movie-details {
@@ -173,7 +173,7 @@ onMounted(async () => {
 }
 
 .movie-title {
-  color: #f0a70a;
+  color: #e21111;
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.3;

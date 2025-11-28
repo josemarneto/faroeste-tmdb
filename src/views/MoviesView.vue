@@ -31,7 +31,7 @@
   const response = await api.get('discover/movie', {
     params: {
       with_genres: genreId,
-      with_keywords: 155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147,
+      with_keywords: `155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147`,
       language: 'pt-BR',
       sort_by: 'popularity.desc',
     },
@@ -93,134 +93,139 @@
 <FooterComponents />
 </template>
 <style scoped>
-.tudo{
-  background-color: #442701;
-  height: 100%;
-  margin: 0;
+.tudo {
+  background-color: #000;
+  min-height: 100vh;
+  padding-top: 1rem;
 }
-.conteudo{
-  background-color: #fab54e;
-  border-radius: 20px;
-   width: 94%;
-   justify-content: center;
-   margin: 0 0 0 3vw;
-}
-.conteudo h1{
-  text-align: center;
-  font-size: 4rem;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #442701;
-  text-shadow: 3px 3px #000000;
-}
-.genre-list {
 
+.conteudo {
+  background-color: #000;
+  border-radius: 20px;
+  width: 94%;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.conteudo h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #442701;
+  margin-bottom: 2rem;
+}
+
+.genre-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 0.8rem;
   list-style: none;
-  margin-bottom: 2rem;
-
+  margin-bottom: 2.5rem;
+  padding: 0;
 }
 
 .genre-item {
-  margin: 1.5vw 0 0 0;
-  background-color:#442701;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  color: #f0a70a;
-  font-weight: bold;
-  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+  background-color: #000;
+  border: #830000 2px solid;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease
 }
 
 .genre-item:hover {
-  cursor: pointer;
   background-color: #f0a70a;
-  box-shadow: 0 0 0.5rem #f0a70a;
   color: #000;
-  font-weight: bold;
+  transform: translateY(-2px);
 }
+
+.genre-item.active {
+  background-color: #682100;
+  color: #fff;
+}
+
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.6rem;
   justify-content: center;
 }
 
 .movie-card {
-  margin: 1.5vw;
-  width: 15rem;
-  height: 30rem;
-  border-radius: 0.5rem;
+  background-color: #830000;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
-  background-color : #000000b7;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
 }
 
 .movie-card img {
-  width: 85%;
-  height: 20rem;
-  border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #f0a70a;
-  margin: 0.5vw 0 0 1.4vw;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  display: block;
+  cursor: pointer;
+  border: #830000 2px solid;
 }
 
 .movie-details {
-  padding: 0 0.5rem;
-  color: #fff;
-  font-size:15px;
-
+  padding: 0.8rem 0.8rem 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .movie-title {
   color: #f0a70a;
-  font-size: 1.1rem;
-  font-weight: bold;
-  line-height: 1.3rem;
-  height: 3.2rem;
-  margin: 0 0 0 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
 }
+
 .movie-genres {
-
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.2rem;
-
+  gap: 0.4rem;
 }
 
 .movie-genres span {
-  border-style: groove;
-  border-width: 1px;
-  border-color: #f0a70a;
-  background-color: #f0a70a;
-  border-radius: 0.5rem;
-  padding: 0.2rem 0.5rem;
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: bold;
-   background: linear-gradient(#f0a70a 0 0) no-repeat calc(200% - var(--p, 0%))
-    100% / 200% var(--p, 0.2em);
-  transition: 0.3s var(--t, 0s),
-    background-position 0.3s calc(0.3s - var(--t, 0s));
-
+  border: 1px solid #f0a70a;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  color: #f0a70a;
+  font-size: 0.65rem;
+  font-weight: 500;
+  background: transparent;
+  cursor: default;
+  transition: background-color 0.2s ease, color 0.2s ease
 }
-
 
 .movie-genres span:hover {
+  background-color: #f0a70a;
+  color: #000;
   cursor: pointer;
-  background-color: #d86100;
-  box-shadow: 0 0 0.5rem #ffae00;
-  --p: 100%;
-  --t: 0.3s;
-  color: #fff;
 }
-.active {
-  background-color: #682100;
-  font-weight: bolder;
+
+@media (max-width: 600px) {
+  .conteudo h1 {
+    font-size: 2.2rem;
+  }
+
+  .movie-card img {
+    height: 230px;
+  }
 }
 
 </style>

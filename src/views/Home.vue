@@ -28,8 +28,7 @@ async function loadMovies() {
 
   const response = await api.get('discover/movie', {
     params: {
-     with_keywords: 155573||15662||340029||305941||197125||215686||254500||222835||222934||168422||168713||256930||227264||177703||178402||271626||237964||155291||287407||168418||238520||309147,
-
+     with_keywords: `155573||15662||340029||305941||197125||215686||254500||222835||222934||168422||168713||256930||227264||177703||178402||271626||237964||155291||287407||168418||238520||309147`,
       language: 'pt-BR',
       sort_by: 'popularity.desc',
     },
@@ -98,6 +97,7 @@ onMounted(async () => {
 .tudo {
   background: #000000;
   font-family: Arial, sans-serif;
+  padding-bottom: 4rem;
 }
 
 
@@ -154,7 +154,7 @@ onMounted(async () => {
 
 .movie:hover {
   transform: none;
-  box-shadow: 0 0 20px rgba(219, 106, 0, 0.808);
+  box-shadow: 0 0 20px rgba(145, 0, 0, 0.808);
 
 }
 .banner {
@@ -164,7 +164,7 @@ onMounted(async () => {
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(219, 106, 0, 0.808); ;
+  box-shadow: 0 0 20px rgba(145, 0, 0, 0.808);
 }
 
 .banner-img {
@@ -226,6 +226,7 @@ onMounted(async () => {
 
   .section {
     margin-bottom: 2rem;
+    padding-bottom: 4rem;
   }
 
   .welcome-text {

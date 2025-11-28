@@ -3,77 +3,117 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
- <div class="conteudo">
-    <nav>
-      <div class="one">
-        <div>
-          <a class="logo">Absolute-Cowboys</a>
-        </div>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Absolute-Cowboys</div>
 
-        <div class="navegacao">
-          <router-link to="/">Home</router-link>
-          <router-link to="/filmes"><span class="mdi mdi-movie"></span></router-link>
-          <router-link to="/tv"><span class="mdi mdi-television-classic"></span></router-link>
-        </div>
+      <div class="links">
+        <RouterLink to="/" class="link">Home</RouterLink>
+
+        <RouterLink to="/filmes" class="icon">
+          <span class="mdi mdi-movie"></span>
+        </RouterLink>
+
+        <RouterLink to="/tv" class="icon">
+          <span class="mdi mdi-television-classic"></span>
+        </RouterLink>
       </div>
     </nav>
-    </div>
   </header>
 
   <main>
     <RouterView />
   </main>
-
-
 </template>
 
 <style scoped>
-header {
-  height: 10rem;
+.header {
+  width: 100%;
+  height: 72px;
+  background-color: #000;
   display: flex;
-  background-color: #000000;
-  color: #fff;
-  font-size: 1.2rem;
-  padding-left: 2rem;
-
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
-nav {
-  column-gap: 0.5rem;
-  margin-bottom: 0;
+.nav {
+  width: 88%;
   display: flex;
   align-items: center;
-}
-.conteudo{
-  background-color: #fd5a0e;
-  border-radius: 20px;
-   width: 94%;
-   justify-content: center;
-   margin: 3vw 0 3vw 2vw;
-}
-nav a {
-  margin: 2vw 0 2vw 5vw;
-  text-decoration: none;
-  color:#000000;
-  font-family: serif;
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-shadow: 1.5px 1.5px #000000;
-}
-
-.one {
-  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
-  font-family: 'Times New Roman', Times, serif;
-  margin: 1.5vw 0 0 3vw;
-  font-size: 1.8vw;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #a70808;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
-.navegacao {
-  margin: 1vw 0 0 50vw;
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
 
+.link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #c50909;
+  text-decoration: none;
+  position: relative;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background-color: #830000;
+  transition: width 0.25s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.icon {
+  font-size: 1.3rem;
+  color: #830000;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav {
+    width: 94%;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .links {
+    gap: 1.1rem;
+  }
+}
 </style>

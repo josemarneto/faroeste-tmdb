@@ -1,83 +1,101 @@
-<script>
-</script>
 <template>
- <footer>
-    <div class="preenchimento">
-      <div class="icons">
-        <ul>
-
-        <li>
-        <a href="#"><span class="mdi mdi-instagram"></span></a>
-        </li>
-
-        <li>
-        <a href="#"><span class="mdi mdi-whatsapp"></span></a>
-        </li>
-        </ul>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="left">
+        <p class="slogan">
+          Só aqui<br />
+          você encontra<br />
+          o melhor do faroeste
+        </p>
       </div>
-      <p class="text">Só aqui<br> você encontra <br>o melhor do faroeste</p>
-    <div class="borda">
-    <p>Copyright &copy;2025 Todos os direitos reservados</p>
+
+      <div class="right">
+        <a href="#" class="social">
+          <span class="mdi mdi-instagram"></span>
+        </a>
+        <a href="#" class="social">
+          <span class="mdi mdi-whatsapp"></span>
+        </a>
+      </div>
     </div>
+
+    <div class="copyright">
+      <p>Copyright © 2025 — Todos os direitos reservados</p>
     </div>
   </footer>
 </template>
+
 <style scoped>
-footer{
- background-color: #000000;
- display: flex;
- justify-content: center;
- }
-.preenchimento{
+.footer {
+  width: 100%;
+  background-color: #000;
+  padding-top: 3rem;
+  position: fixed;
+}
+
+.footer-content {
+  width: 95%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
-  background-color: #fd5a0e;
-  height: 15rem;
-  width: 94%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin: 3vw 0 0 0;
-
 }
-footer p{
+
+.slogan {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #fff;
-  margin: 1vw 0 0 0;
-  font-weight: bold;
-}
-.borda{
-  display: flex;
-   background-color: #000000;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-   width: 94%;
-   justify-content: center;
-   height: 4rem;
-   width: 70%;
+  line-height: 1.6;
 }
 
-.icons ul {
-  font-size: 30px;
-  text-decoration: none;
-  list-style-type: none;
-  color: #000000;
-  display: flex;
-  margin: 0 52vw 1vw 0;
+.slogan::first-line {
+  color: #830000;
+  font-weight: 700;
+}
 
+.right {
+  display: flex;
+  gap: 1.5rem;
 }
-.icons ul li{
-  margin: 0 1vw 0 0;
+
+.social {
+  font-size: 1.6rem;
+  color: #fff;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-a{
-  color: #000;
+
+.social:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+  color: #830000;
 }
-.text{
-  color: #000000;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: left;
-  margin: 0 35vw 0 0;
+
+.copyright {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.copyright p {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .right {
+    gap: 2rem;
+  }
 }
 </style>

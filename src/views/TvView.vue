@@ -25,7 +25,7 @@
   const response = await api.get('discover/tv', {
     params: {
       with_genres: genreId,
-      with_keywords: 155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147,
+      with_keywords: `155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147`,
       language: 'pt-BR'
     }
   });
@@ -49,7 +49,7 @@
     <h1>Western TV</h1>
   <ul class="genre-list">
     <li
-  v-for="genre in genreStore.genres"
+  v-for="genre in genreStore.filteredGenres"
   :key="genre.id"
   @click="listTv(genre.id)"
   class="genre-item"
@@ -69,7 +69,7 @@
       <p class="tv-name">{{ tv.name }}</p>
       <p class="tv-genres">
   <span
-  v-for="genre_id in tv.genre_ids"
+  v-for="genre_id in tv.genre_ids.filter(id => id !== 37 && id !== 10752 && id !== 10763 && id !== 9648 && id !== 10764 && id !== 10766 && id !== 10767 && id !== 10768)"
   :key="genre_id"
   @click="listTv(genre_id)"
 >

@@ -5,8 +5,7 @@ import FooterComponents from "@/components/FooterComponents.vue";
 import { useRouter } from "vue-router";
 import { useGenreStore } from "@/stores/genre";
 
-const isLoading = ref(false);
-const genreStore = useGenreStore();
+
 const router = useRouter();
 
 const movies = ref([]);
@@ -14,7 +13,7 @@ const featuredMovie = ref(null);
 const defaultMoive = {
   title: 'Conheça os filmes',
   overview: 'Para os detalhes, passe o mouse por cima dos cards',
-  backdrop_path: '/img/backdrop_path_default.jpg'
+  backdrop_path: '/img/banner.jpg'
 }
 
 const tvs = ref([]);

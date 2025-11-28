@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps, onMounted } from 'vue';
+import { defineProps, onMounted } from 'vue';
 import { useMovieStore } from '@/stores/movie';
 import FooterComponents from "@/components/FooterComponents.vue";
 const movieStore = useMovieStore();
@@ -11,7 +11,7 @@ const props = defineProps({
   },
 });
 
-onMounted(async () => {
+ onMounted(async () => {
   await movieStore.getMovieDetail(props.movieId);
 });
 
@@ -78,7 +78,7 @@ onMounted(async () => {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.img {
+ .img {
   margin: 1vw 1vw 1vw 2vw;
   border-radius: 5px;
   width: 20%;

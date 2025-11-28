@@ -1,4 +1,4 @@
-import { language } from '@vue/eslint-config-prettier/skip-formatting';
+
 import axios from 'axios';
 
 const api = axios.create({

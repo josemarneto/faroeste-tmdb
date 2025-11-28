@@ -140,33 +140,39 @@
 }
 
 .tv-card {
-width: 15rem;
-  height: 30rem;
-  border-radius: 0.5rem;
+  width: 12rem;
+  height: 25rem;
+  cursor: pointer;
+  border-radius: 3rem;
   overflow: hidden;
   box-shadow: 0 0 0.5rem #000;
   background-color : #000000b7;
   margin: 1.5vw;
+  border: #830000 2px solid;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
+.tv-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
 .tv-card img {
-    width: 85%;
-  height: 20rem;
+    width: 100%;
+  height: 260px;
+  object-fit: cover;
   border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #e21111;
-  margin: 0.5vw 0 0 1.4vw;
+  margin: 0;
+  box-shadow: none;
+  display: block;
+  cursor: pointer;
 }
-
-
 
 .tv-name {
  color: #e21111;
-  font-size: 1.1rem;
-  font-weight: bold;
-  line-height: 1.3rem;
-  height: 3.2rem;
-  margin: 0 0 0 20px;
-
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  text-align: center;
 }
 .tv-genres {
   display: flex;

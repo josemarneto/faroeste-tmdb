@@ -30,7 +30,7 @@ import { RouterView } from 'vue-router'
 
 <style scoped>
 header {
-  height: 10rem;
+  height: 8rem;
   display: flex;
   background-color: #000000;
   color: #fff;
@@ -46,7 +46,7 @@ nav {
   align-items: center;
 }
 .conteudo{
-  background-color: #fd5a0e;
+  background-color: #000000;
   border-radius: 20px;
    width: 94%;
    justify-content: center;
@@ -55,11 +55,11 @@ nav {
 nav a {
   margin: 2vw 0 2vw 5vw;
   text-decoration: none;
-  color:#000000;
+  color:#e21111;
   font-family: serif;
   font-weight: bold;
   font-size: 1.3rem;
-  text-shadow: 1.5px 1.5px #000000;
+  text-shadow: 1.5px 1.5px #00000000;
 }
 
 .one {

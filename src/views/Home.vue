@@ -1,77 +1,90 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import api from '@/plugins/axios'
-import FooterComponents from '@/components/FooterComponents.vue'
-import { useRouter } from 'vue-router'
-import { useGenreStore } from '@/stores/genre'
-import Loading from 'vue-loading-overlay'
+import { ref, onMounted } from "vue";
+import api from "@/plugins/axios";
+import FooterComponents from "@/components/FooterComponents.vue";
+import { useRouter } from "vue-router";
+import { useGenreStore } from "@/stores/genre";
 
-const isLoading = ref(false)
-const genreStore = useGenreStore()
-const router = useRouter()
+const isLoading = ref(false);
+const genreStore = useGenreStore();
+const router = useRouter();
 
-const genres = ref([])
-const movies = ref([])
-const featuredMovie = ref(null)
+const movies = ref([]);
+const featuredMovie = ref(null);
+const defaultMoive = {
+  title: 'Conheça os filmes',
+  overview: 'Para os detalhes, passe o mouse por cima dos cards',
+  backdrop_path: '/img/backdrop_path_default.jpg'
+}
 
-function getGenreName(id) {
-  const genero = genres.value.find((genre) => genre.id === id)
-  return genero?.name
+const tvs = ref([]);
+const featuredTv = ref(null);
+
+
+async function loadMovies() {
+  const response = await api.get("discover/movie", {
+    params: {
+      with_keywords:
+        '155573||15662||340029||305941||197125||215686||254500||222835||222934||168422||168713||256930||227264||177703||178402||271626||237964||155291||287407||168418||238520||309147',
+      language: "pt-BR",
+      sort_by: "popularity.desc",
+    },
+  });
+
+  movies.value = response.data.results;
+  featuredMovie.value = movies.value[0];
+}
+
+
+async function loadTv() {
+  const response = await api.get("discover/tv", {
+    params: {
+      with_keywords:
+       ' 155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147',
+      language: "pt-BR",
+      sort_by: "popularity.desc",
+    },
+  });
+
+  tvs.value = response.data.results;
+  featuredTv.value = tvs.value[0];
 }
 
 function openHome(movieId) {
-  router.push({ name: 'MovieDetails', params: { movieId } })
+  router.push({ name: "MovieDetails", params: { movieId} });
 }
 
-async function loadMovies() {
-  isLoading.value = true
-
-  const response = await api.get('discover/movie', {
-    params: {
-     with_keywords: 155573||15662||340029||305941||197125||215686||254500||222835||222934||168422||168713||256930||227264||177703||178402||271626||237964||155291||287407||168418||238520||309147,
-
-      language: 'pt-BR',
-      sort_by: 'popularity.desc',
-    },
-  })
-
-  movies.value = response.data.results
-
-
-  if (movies.value.length > 0) {
-    featuredMovie.value = movies.value[0]
-  }
-
-  isLoading.value = false
+function openTv(id) {
+  router.push({ name: "TvDetails", params: { tvId: id } });
 }
 
 onMounted(async () => {
-  await genreStore.getAllGenres('movie')
-  await loadMovies()
-})
+  await loadMovies();
+  await loadTv();
+});
 </script>
-
 
 <template>
   <div class="tudo">
 
-    <div class="netflix-carousel">
 
-      <div v-if="featuredMovie" class="banner">
+    <div class="carrosel">
+      <div class="banner">
         <img
           class="banner-img"
-          :src="featuredMovie.backdrop_path
-            ? `https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}`
-            : `https://image.tmdb.org/t/p/w500${featuredMovie.poster_path}`"
+          :src="
+          featuredMovie?.title == 'Conheça os filmes'
+          ? featuredMovie?.backdrop_path
+          : `https://image.tmdb.org/t/p/original${featuredMovie?.backdrop_path}`
+          "
         />
-
         <div class="banner-info">
-          <h1>{{ featuredMovie.title }}</h1>
-          <p>{{ featuredMovie.overview }}</p>
+          <h1>{{ featuredMovie?.title }}</h1>
+          <p>{{ featuredMovie?.overview }}</p>
         </div>
-      </div>
+    </div>
 
-      <h2 class="carousel-title">Filmes em Destaque</h2>
+      <h2 class="titulo-carrosel">Filmes em Destaque</h2>
 
       <div class="carousel-row">
         <div
@@ -79,11 +92,43 @@ onMounted(async () => {
           :key="movie.id"
           class="movie"
           @click="openHome(movie.id)"
-          @mouseover="featuredMovie = movie"
+          @mouseover="featuredMovie = movie; console.log(movie)"
+          @mouseout="featuredMovie = defaultMoive"
         >
           <img
-            :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`"
+            :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
             :alt="movie.title"
+          />
+        </div>
+      </div>
+    </div>
+
+<div class="carrosel">
+      <div v-if="featuredTv" class="banner">
+        <img
+          class="banner-img"
+          :src="`https://image.tmdb.org/t/p/original${featuredTv.backdrop_path}`"
+        />
+        <div class="banner-info">
+          <h1>{{ featuredTv.name }}</h1>
+          <p>{{ featuredTv.overview }}</p>
+        </div>
+      </div>
+
+
+      <h2 class="titulo-carrosel">Séries em Destaque</h2>
+
+      <div class="carousel-row">
+        <div
+          v-for="tv in tvs"
+          :key="tv.id"
+          class="movie"
+          @click="openTv(tv.id)"
+          @mouseover="featuredTv = tv"
+        >
+          <img
+            :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`"
+            :alt="tv.name"
           />
         </div>
       </div>
@@ -94,7 +139,6 @@ onMounted(async () => {
   <FooterComponents />
 </template>
 
-
 <style>
 
 .tudo {
@@ -103,14 +147,14 @@ onMounted(async () => {
 }
 
 
-.carousel-title {
+.titulo-carrosel {
   color: white;
   font-size: 15px;
   margin:10px ;
 
 }
 
-.netflix-carousel {
+.carrosel {
   width: 100%;
   overflow: hidden;
   padding: 2px 0;
@@ -156,17 +200,19 @@ onMounted(async () => {
 
 .movie:hover {
   transform: none;
-  box-shadow: 0 0 20px rgba(219, 106, 0, 0.808);
+  box-shadow: 0 0 20px rgba(219, 0, 0, 0.808);
+  position: static;
 
 }
 .banner {
   position: relative;
-  width: 100%;
-  height: 400px;
+  width: 90%;
+  height: 500px;
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(219, 106, 0, 0.808); ;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.808);
+  margin: 0 0 0 5vw;
 }
 
 .banner-img {

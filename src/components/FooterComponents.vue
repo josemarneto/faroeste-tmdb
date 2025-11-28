@@ -33,7 +33,7 @@ footer{
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  background-color: #fd5a0e;
+  background-color: #b90000;
   height: 15rem;
   width: 94%;
   border-top-left-radius: 20px;

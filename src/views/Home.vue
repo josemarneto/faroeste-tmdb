@@ -143,6 +143,7 @@ onMounted(async () => {
 .tudo {
   background: #000000;
   font-family: Arial, sans-serif;
+  padding-bottom: 4rem;
 }
 
 

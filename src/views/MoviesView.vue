@@ -102,13 +102,14 @@ onMounted(async () => {
 
 .genre-list {
 
+.genre-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 0.8rem;
   list-style: none;
-  margin-bottom: 2rem;
-
+  margin-bottom: 2.5rem;
+  padding: 0;
 }
 
 .genre-item {
@@ -129,60 +130,62 @@ onMounted(async () => {
   background-color: #e21111;
   box-shadow: 0 0 0.5rem #e21111;
   color: #000;
-  font-weight: bold;
+  transform: translateY(-2px);
+}
+
+.genre-item.active {
+  background-color: #682100;
+  color: #fff;
 }
 
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.6rem;
   justify-content: center;
 }
 
 .movie-card {
-  margin: 1.5vw;
-  width: 15rem;
-  height: 30rem;
-  border-radius: 1rem;
+  background-color: #830000;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
-  background-color: #000000b7;
-  border: #830000 2px solid;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
 }
 
 .movie-card img {
-  width: 85%;
-  height: 20rem;
-  border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #e21111;
-  margin: 0.5vw 0 0 1.4vw;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  display: block;
+  cursor: pointer;
+  border: #830000 2px solid;
 }
 
 .movie-details {
-  padding: 0 0.5rem;
-  color: #fff;
-  font-size: 15px;
-
+  padding: 0.8rem 0.8rem 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .movie-title {
-  color: #e21111;
-  font-size: 1.1rem;
-  font-weight: bold;
-  line-height: 1.3rem;
-  height: 3.2rem;
-  margin: 0 0 0 10px;
+  color: #f0a70a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
 }
 
 .movie-genres {
-
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.2rem;
-
+  gap: 0.4rem;
 }
 
 .movie-genres span {
@@ -201,8 +204,9 @@ onMounted(async () => {
 
 }
 
-
 .movie-genres span:hover {
+  background-color: #f0a70a;
+  color: #000;
   cursor: pointer;
   background-color: #a14b04;
   box-shadow: 0 0 0.5rem #e21111;

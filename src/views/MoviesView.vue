@@ -96,7 +96,7 @@ onMounted(async () => {
   text-align: center;
   font-size: 4rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #000000;
+  color: #830000;
   text-shadow: 3px 3px #0000009a;
 }
 

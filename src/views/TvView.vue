@@ -25,7 +25,7 @@
   const response = await api.get('discover/tv', {
     params: {
       with_genres: genreId,
-      with_keywords: `155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147`,
+      with_keywords: '155573 || 15662 || 340029 || 305941 || 197125 || 215686 || 254500 || 222835 || 222934 || 168422 || 168713 || 256930 || 227264 || 177703 || 178402 || 271626 || 237964 || 155291 || 287407 || 168418 || 238520 || 309147',
       language: 'pt-BR'
     }
   });
@@ -49,7 +49,7 @@
     <h1>Western TV</h1>
   <ul class="genre-list">
     <li
-  v-for="genre in genreStore.filteredGenres"
+  v-for="genre in genreStore.genres"
   :key="genre.id"
   @click="listTv(genre.id)"
   class="genre-item"
@@ -69,7 +69,7 @@
       <p class="tv-name">{{ tv.name }}</p>
       <p class="tv-genres">
   <span
-  v-for="genre_id in tv.genre_ids.filter(id => id !== 37 && id !== 10752 && id !== 10763 && id !== 9648 && id !== 10764 && id !== 10766 && id !== 10767 && id !== 10768)"
+  v-for="genre_id in tv.genre_ids"
   :key="genre_id"
   @click="listTv(genre_id)"
 >
@@ -87,12 +87,12 @@
 <style scoped>
 .tudo{
 
-  background-color: #442701;
+  background-color: #000000;
   height: 100%;
   margin: 0;
 }
 .conteudo{
-  background-color: #fab54e;
+  background-color: #000000;
   border-radius: 20px;
    width: 94%;
    justify-content: center;
@@ -102,7 +102,7 @@
   text-align: center;
   font-size: 4rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #442701;
+  color: #830000;
   text-shadow: 3px 3px #000000;
 }
   .genre-list {
@@ -116,19 +116,19 @@
 
   .genre-item {
   margin: 1.5vw 1vw 0 0;
-  background-color:#442701;
-  border-radius: 0.5rem;
+  background-color:#000000;
+  border-radius: 1.5rem;
   padding: 0.5rem 1rem;
-  color: #f0a70a;
+  color: #e21111;
    font-weight: bold;
   font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+  border: #e21111 2px solid;
   }
 
   .genre-item:hover {
     cursor: pointer;
-  background-color: #f0a70a;
-  box-shadow: 0 0 0.5rem #f0a70a;
+  background-color: #e21111;
+  box-shadow: 0 0 0.5rem #e21111;
   color: #000;
   font-weight: bold;
   }
@@ -153,14 +153,14 @@ width: 15rem;
     width: 85%;
   height: 20rem;
   border-radius: 3rem;
-  box-shadow: 0 0 0.5rem #f0a70a;
+  box-shadow: 0 0 0.5rem #e21111;
   margin: 0.5vw 0 0 1.4vw;
 }
 
 
 
 .tv-name {
- color: #f0a70a;
+ color: #e21111;
   font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.3rem;
@@ -180,14 +180,14 @@ width: 15rem;
 .tv-genres span {
  border-style: groove;
   border-width: 1px;
-  border-color: #f0a70a;
-  background-color: #f0a70a;
+  border-color: #e21111;
+  background-color: #e21111;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   color: #fff;
   font-size: 0.8rem;
   font-weight: bold;
-   background: linear-gradient(#f0a70a 0 0) no-repeat calc(200% - var(--p, 0%))
+   background: linear-gradient(#e21111 0 0) no-repeat calc(200% - var(--p, 0%))
     100% / 200% var(--p, 0.2em);
   transition: 0.3s var(--t, 0s),
     background-position 0.3s calc(0.3s - var(--t, 0s));
@@ -195,8 +195,8 @@ width: 15rem;
 
 .tv-genres span:hover {
   cursor: pointer;
-  background-color: #d86100;
-  box-shadow: 0 0 0.5rem #ffae00;
+  background-color: #8d4103;
+  box-shadow: 0 0 0.5rem #e21111;
   --p: 100%;
   --t: 0.3s;
   color: #fff;

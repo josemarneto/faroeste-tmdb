@@ -33,7 +33,7 @@ import { RouterView } from 'vue-router'
   background-color: #000;
   display: flex;
   justify-content: center;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 999;
@@ -64,7 +64,7 @@ import { RouterView } from 'vue-router'
 .link {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
-  color: #c50909;
+  color: #ff0000;
   text-decoration: none;
   position: relative;
   opacity: 0.85;
@@ -92,7 +92,7 @@ import { RouterView } from 'vue-router'
 
 .icon {
   font-size: 1.3rem;
-  color: #830000;
+  color: #ff0000;
   opacity: 0.8;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }

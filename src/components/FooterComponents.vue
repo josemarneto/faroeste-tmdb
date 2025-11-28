@@ -30,7 +30,7 @@
   width: 100%;
   background-color: #000;
   padding-top: 3rem;
-  position: fixed;
+  position: relative;
 }
 
 .footer-content {

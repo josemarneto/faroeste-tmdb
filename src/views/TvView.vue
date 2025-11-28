@@ -92,7 +92,7 @@
   margin: 0;
 }
 .conteudo{
-  background-color: #830000;
+  background-color: #000000;
   border-radius: 20px;
    width: 94%;
    justify-content: center;
@@ -102,7 +102,7 @@
   text-align: center;
   font-size: 4rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #0000007a;
+  color: #830000;
   text-shadow: 3px 3px #000000;
 }
   .genre-list {
@@ -117,12 +117,12 @@
   .genre-item {
   margin: 1.5vw 1vw 0 0;
   background-color:#000000;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   padding: 0.5rem 1rem;
   color: #e21111;
    font-weight: bold;
   font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+  border: #e21111 2px solid;
   }
 
   .genre-item:hover {

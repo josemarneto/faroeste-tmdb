@@ -22,7 +22,7 @@ function openMovie(movieId) {
   router.push({ name: 'MovieDetails', params: { movieId } });
 }
 
-const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR');
+
 
 const listMovies = async (genreId) => {
   genreStore.setCurrentGenreId(genreId);
@@ -99,8 +99,6 @@ onMounted(async () => {
   color: #830000;
   text-shadow: 3px 3px #0000009a;
 }
-
-.genre-list {
 
 .genre-list {
   display: flex;

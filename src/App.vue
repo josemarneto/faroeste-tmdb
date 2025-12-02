@@ -21,9 +21,8 @@ import { RouterView } from 'vue-router'
     </nav>
   </header>
 
-  <main>
     <RouterView />
-  </main>
+
 </template>
 
 <style scoped>
@@ -102,18 +101,4 @@ import { RouterView } from 'vue-router'
   opacity: 1;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .nav {
-    width: 94%;
-  }
-
-  .logo {
-    font-size: 1.1rem;
-  }
-
-  .links {
-    gap: 1.1rem;
-  }
-}
 </style>

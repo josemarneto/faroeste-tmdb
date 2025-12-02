@@ -80,8 +80,9 @@ onMounted(async () => {
 <style scoped>
 .tudo {
   background-color: #000000;
-  height: 100%;
+  min-height: 77vh;
   margin: 0;
+  flex-grow: 1;
 }
 
 .conteudo {
@@ -98,6 +99,7 @@ onMounted(async () => {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #830000;
   text-shadow: 3px 3px #0000009a;
+
 }
 
 .genre-list {

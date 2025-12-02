@@ -19,18 +19,21 @@
       </div>
     </div>
 
-    <div class="copyright">
       <p>Copyright © 2025 — Todos os direitos reservados</p>
-    </div>
+    
   </footer>
 </template>
 
 <style scoped>
+footer {
+}
 .footer {
   width: 100%;
   background-color: #000;
   padding-top: 3rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-content {
@@ -84,18 +87,5 @@
   color: #aaa;
   font-size: 0.9rem;
   font-family: 'Poppins', sans-serif;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  .right {
-    gap: 2rem;
-  }
 }
 </style>

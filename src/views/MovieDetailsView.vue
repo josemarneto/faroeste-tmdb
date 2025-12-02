@@ -61,7 +61,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  min-height: 75vh;
+  flex-grow:1 ;
 }
 
 .companies {
@@ -70,13 +70,13 @@
   column-gap: 3rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  margin: 1vw 0 0 0 0;
+  margin: 1vw 0 0 0;
   column-gap: 1rem;
 }
 
 .content {
   display: flex;
-  height: 25rem;
+  height: 33.5vw;
   margin: 0 0 3vw 2vw;
   gap: 1vw;
 }
@@ -84,6 +84,7 @@
 .content h1 {
   color: #830000;
   font-family: 'Times New Roman', Times, serif;
+  font-size: 4rem;
 }
 
 .content p {
@@ -98,15 +99,17 @@
 .img {
   position: relative;
   overflow: hidden;
+ 
 }
 
 .img img {
-  border-radius: 10px;
-  width: 15vw;
-  height: 100%;
+  height: auto;
+  width: 25vw;
   display: block;
+  object-fit: contain;
   -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
   mask-image: linear-gradient(to right, black 60%, transparent 100%);
+
 }
 .companies h2 {
   color: #fff;
@@ -117,5 +120,7 @@
 
 .details p span {
   color: #830000;
+  font-size: 1rem;
+  font-weight: bold;
 }
 </style>

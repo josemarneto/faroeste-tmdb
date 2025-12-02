@@ -11,7 +11,7 @@
   });
 
   onMounted(async () => {
-    await homeStoreStore.getHomeDetail(props.homeId);
+    await homeStore.getHomeDetail(props.homeId);
   });
 </script>
 

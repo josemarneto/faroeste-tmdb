@@ -6,14 +6,13 @@ import api from '@/plugins/axios';
 export const useMovieStore = defineStore('movie', () => {
   const state = reactive({
     currentMovie: {},
+    cast: [],
   });
 
   const currentMovie = computed(() => state.currentMovie);
 
   const getMovieDetail = async (movieId) => {
-    
-    const response = await api.get(`movie/${movieId}?&language=pt-BR` 
-    );
+    const response = await api.get(`movie/${movieId}?&language=pt-BR` );
     state.currentMovie = response.data;
   };
 
